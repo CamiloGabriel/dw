@@ -23,7 +23,7 @@ engine = create_engine(DATABASE_URL)
 
 # pegar cotacao dos ativos
 def buscar_dados_commodities(simbolo, periodo = '5d', intervalo = '1d'):
-    ticker = yf.Ticker('CL=F') # ao invés de usar um response, a biblioteca yf tem o método ticker que retornará a cotação desejada
+    ticker = yf.Ticker(simbolo) # ao invés de usar um response, a biblioteca yf tem o método ticker que retornará a cotação desejada
     dados = ticker.history(period=periodo, interval= intervalo)[['Close']] # ira retornar um dataframe apenas com a coluna 'Close', se quiser pegar cotações de hora em hora, basta tirar o 'Close'.
     dados['simbolo'] = simbolo # criar uma coluna nova ['simbolo'] onde ele irá receber o prório simbolo do parametro da função, para retornar o ticker consultado
     return dados
