@@ -8,6 +8,20 @@ Este projeto utiliza DBT (Data Build Tool) para gerenciar e transformar dados de
 
 ## Estrutura do Projeto
 
+```mermaid
+graph TD;
+    A[Start] --> B[Buscar dados de commodities]
+    B --> C{Commodities List}
+    C -->|Para cada símbolo| D[Buscar dados de commodity individual]
+    D --> E[Armazenar dados no DataFrame]
+    E --> F{Mais commodities para buscar?}
+    F --> |Sim| D
+    F --> |Não| G[Concatenar todos os dados]
+    G --> H[Salvar no PostgreSQL]
+    H --> I[End]
+```
+
+
 ### 1. Seeds
 
 Os seeds são dados estáticos que são carregados no Data Warehouse a partir de arquivos CSV. Neste projeto, usamos seeds para carregar dados de movimentações de commodities.
