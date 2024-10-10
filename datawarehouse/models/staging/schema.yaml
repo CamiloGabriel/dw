@@ -10,6 +10,7 @@ models:
         description: "Preço de fechamento da commodity com precisão decimal 4.2"
       - name: simbolo
         description: "Símbolo da commodity"
+  
   - name: stg_movimentacao_commodities
     description: "Tabela de staging para dados de movimentação de commodities"
     columns:

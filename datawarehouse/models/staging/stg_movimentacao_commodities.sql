@@ -19,4 +19,9 @@ renamed as (
     from source
 )
 
-select * from renamed
+select
+    data,
+    simbolo,
+    acao,
+    quantidade
+from renamed
